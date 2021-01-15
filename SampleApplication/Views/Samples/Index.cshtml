@@ -1,0 +1,31 @@
+﻿@model IEnumerable<SampleApplication.Models.Sample>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<table class="table table-bordered table-hover">
+    <tr>
+        <th>Model</th>
+        <th>Brand</th>
+        <th>EngineCC</th>
+        <th>Delivery date</th>
+        <th>Actions</th>
+    </tr>
+    @foreach (var sample in Model)
+    {
+        <tr>
+            <td>@sample.Model</td>
+            <td>@sample.Brand</td>
+            <td>@sample.EngineCC</td>
+            <td>@sample.DeliveryDate.ToShortDateString()</td>
+
+            <td>
+                @Html.ActionLink("Edit", "Edit", "Samples", new { id = sample.Id }, new { @class = "btn btn-outline-warning" }) 
+            </td>
+
+        </tr>
+    }
+</table>

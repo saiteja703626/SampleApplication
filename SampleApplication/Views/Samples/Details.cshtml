@@ -1,0 +1,43 @@
+﻿@model SampleApplication.ViewModel.SampleViewModel
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div class="row">
+    <div class="col-md-6">
+        @using (Html.BeginForm())
+        {
+            <div class="form-group">
+                @Html.LabelFor(x => x.Sample.Brand)
+                @Html.TextBoxFor(x => x.Sample.Brand, new { @class = "form-control", autocomplete = "off" })
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(x => x.Sample.Model)
+                @Html.TextBoxFor(x => x.Sample.Model, new { @class = "form-control", autocomplete = "off" })
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(x => x.Sample.DeliveryDate)
+                @Html.TextBoxFor(x => x.Sample.DeliveryDate, "{0:yyyy-MM-dd}", new { @class = "form-control", type = "date" })
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(x => x.Sample.Mileage)
+                @Html.TextBoxFor(x => x.Sample.Mileage, new { @class = "form-control", autocomplete = "off" })
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(x => x.Sample.EngineCC)
+                @Html.DropDownListFor(x => x.Sample.EngineCC, new SelectList(Model.EngineCC, "Value", "Text"), new { @class = "form-control" })
+            </div>
+            <div class="form-group">
+                <button id="CmdSubmit" type="submit" class="btn btn-success">Save</button>
+            </div>
+        }
+    </div>
+</div>
+
+
+
+
+

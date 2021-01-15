@@ -1,0 +1,51 @@
+﻿@model SampleApplication.ViewModel.SampleViewModel
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            @Html.ValidationSummary(false, null, new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            @using (Html.BeginForm())
+            {
+              
+                <div class="form-group">
+                    @Html.LabelFor(x => x.Sample.Brand)
+                    @Html.TextBoxFor(x => x.Sample.Brand, new { @class = "form-control", autocomplete = "off" })
+
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(x => x.Sample.Model)
+                    @Html.TextBoxFor(x => x.Sample.Model, new { @class = "form-control", autocomplete = "off" })
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(x => x.Sample.DeliveryDate)
+                    @Html.TextBoxFor(x => x.Sample.DeliveryDate, new { @class = "form-control", type = "date", autocomplete = "off" })
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(x => x.Sample.Mileage)
+                    @Html.TextBoxFor(x => x.Sample.Mileage, new { @class = "form-control", autocomplete = "off" })
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(x => x.Sample.EngineCC)
+                    @Html.DropDownListFor(x => x.Sample.EngineCC, new SelectList(Model.EngineCC, "Value", "Text"), new { @class = "form-control" })
+                </div>
+                <div>
+                    <button id="CmdSubmit" type="submit" class="btn btn-outline-warning">Edit</button>
+                </div>
+            }
+        </div>
+    </div>
+
+</div>
